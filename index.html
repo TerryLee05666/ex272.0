@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>響應式佈局練習</title>
+    <style>
+        /* 基礎樣式重置 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #4A90E2; /* 藍色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 白色卡片容器 */
+        .container {
+            background-color: white;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        /* 區塊共通樣式 */
+        .block {
+            border-radius: 4px;
+        }
+
+        /* 頂部綠色區塊 */
+        .header-block {
+            background-color: #B3D944;
+            height: 150px;
+            width: 100%;
+        }
+
+        /* 中間青色區塊容器 (Grid) */
+        .middle-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 預設 3 欄 (b) */
+            gap: 10px;
+        }
+
+        .cyan-block {
+            background-color: #00BCD4;
+            height: 100px;
+        }
+
+        /* 底部灰色區塊容器 (Grid) */
+        .bottom-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 預設 4 欄 (b) */
+            gap: 10px;
+        }
+
+        .grey-block {
+            background-color: #E8EDF1;
+            height: 50px;
+        }
+
+        /* --- 響應式設定：寬度小於 480px --- */
+        @media (max-width: 480px) {
+            .middle-section {
+                grid-template-columns: 1fr; /* 中間改為單欄垂直堆疊 (a) */
+            }
+
+            .bottom-section {
+                grid-template-columns: repeat(2, 1fr); /* 底部改為 2x2 排列 (a) */
+            }
+
+            .header-block {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 頂部區塊 -->
+        <div class="block header-block"></div>
+
+        <!-- 中間青色區塊 -->
+        <div class="middle-section">
+            <div class="block cyan-block"></div>
+            <div class="block cyan-block"></div>
+            <div class="block cyan-block"></div>
+        </div>
+
+        <!-- 底部灰色區塊 -->
+        <div class="bottom-section">
+            <div class="block grey-block"></div>
+            <div class="block grey-block"></div>
+            <div class="block grey-block"></div>
+            <div class="block grey-block"></div>
+        </div>
+    </div>
+
+</body>
+</html>
